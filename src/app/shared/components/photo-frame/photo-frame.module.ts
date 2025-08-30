@@ -11,5 +11,8 @@ import { LikeWidgetModule } from '../like-widget/like-widget.module';
     CommonModule,
     LikeWidgetModule,
   ],
+  exports: [
+    PhotoFrameComponent,
+  ],
 })
 export class PhotoFrameModule { }
