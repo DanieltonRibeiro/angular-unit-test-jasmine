@@ -7,6 +7,7 @@ import {
 
 import { PhotoFrameComponent } from './photo-frame.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from 'protractor';
 
 describe('PhotoFrameComponent', () => {
   let component: PhotoFrameComponent;
@@ -52,4 +53,15 @@ describe('PhotoFrameComponent', () => {
     tick(500);
     expect(times).toBe(2);
   }));
+
+  it(`(D) Should display image with src and description when bound to properties`, () => {
+    const description = 'some description';
+    const src = 'http://somesite.com/imag.jpg';
+    component.src = src;
+    component.description = description;
+    fixture.detectChanges();
+    const img = fixture.nativeElement.querySelector('img');
+    expect(img.getAttribute('src')).toBe(src);
+    expect(img.getAttribute('alt')).toBe(description);
+  });
 });
