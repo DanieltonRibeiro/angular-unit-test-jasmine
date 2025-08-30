@@ -21,6 +21,8 @@ describe('PhotoFrameComponent', () => {
 
     fixture = TestBed.createComponent(PhotoFrameComponent);
     component = fixture.componentInstance;
+
+    fixture.detectChanges();
   });
 
   it('should create component', () => {
@@ -29,7 +31,6 @@ describe('PhotoFrameComponent', () => {
 
   it(`#${PhotoFrameComponent.prototype.like.name} should trigger
   (@Output liked) once when called multiple times within debounce time`, fakeAsync(() => {
-    fixture.detectChanges();
     let times = 0;
     component.liked.subscribe(() => {
       times++;
@@ -41,7 +42,6 @@ describe('PhotoFrameComponent', () => {
 
   it(`#${PhotoFrameComponent.prototype.like.name} should trigger
   (@Output liked) two times when called outside debounce time`, fakeAsync(() => {
-    fixture.detectChanges();
     let times = 0;
     component.liked.subscribe(() => {
       times++;
